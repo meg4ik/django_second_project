@@ -17,8 +17,12 @@ from django.contrib import admin
 from django.urls import path
 
 from pages.views import home
+from products.views import product_datail
+from products.views import product_create
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home),
+    path('product_datail/', product_datail),
+    path('product_create/', product_create),
 ]
