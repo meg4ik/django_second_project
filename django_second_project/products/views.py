@@ -6,6 +6,13 @@ from .models import Product
 
 from .forms import ProductForm
 
+def product_list(request):
+    queryset = Product.objects.all()
+    context = {
+        "obj_list": queryset
+    }
+    return render(request, "products/prod_list.html", context)
+
 def product_delete(request,eid):
     if request.method == "POST":
         try:

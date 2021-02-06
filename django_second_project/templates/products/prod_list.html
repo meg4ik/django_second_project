@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for i in obj_list %}
+    <a href="{% url 'productsurl:product' i.id %}">{{ i.id }} - {{ i.title }}</a>
+{% endfor %}
+{% endblock %}
