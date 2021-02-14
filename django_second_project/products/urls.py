@@ -9,5 +9,4 @@ urlpatterns = [
     path('<int:eid>/', dynamic_lookup, name='product'),
     path('delete/<int:eid>/', product_delete, name='delete'),
     path('', product_list, name='list'),
-    
 ]

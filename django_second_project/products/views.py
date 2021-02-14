@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import Http404
 # Create your views here.
 
 from .models import Product
@@ -27,15 +26,8 @@ def product_delete(request,eid):
 
 def dynamic_lookup(request, eid):
     if request.method == "GET":
-        try:
-            obj = get_object_or_404(Product, id = eid)
-        except Product.DoesNotExist:
-            raise Http404
-        else:
-            content = {
-                'obj':obj
-            }
-            return render(request, "products/detail.html", content)
+        obj = get_object_or_404(Product, id = eid)
+        return render(request, "products/detail.html", {'obj':obj})
 
 def product_create(request):
     if request.method == "POST":
